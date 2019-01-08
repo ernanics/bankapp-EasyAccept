@@ -1,0 +1,6 @@
+#ATM
+#Um cliente tenta sacar uma quantia maior que o saldo da sua conta.
+setUp nome="John Frederic Piper" numeroDoCartao="9999888877776666" numeroDoContaCorrente="125654-08" saldo=90.00 senha="123456" notasATM_5_10_20_50_100="0,200,0,150,100"
+setErroDeSenhaNasUltimas72horas numeroDoCartao="9999888877776666" numeroDeErros=0 numeroDeHorasDoprimeiroErro=0
+expectError "Saldo insuficiente! Por favor, verifique seu saldo e tente novamente." sacar numeroDoCartao="9999888877776666" valor=100 senha=123456
+expect 90.0 verSaldo numeroDoCartao="9999888877776666"

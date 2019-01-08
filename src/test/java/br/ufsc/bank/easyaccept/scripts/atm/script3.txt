@@ -1,0 +1,7 @@
+#ATM
+#Um cliente tenta sacar uma quantia de dinheiro de sua conta bancária por meio de um caixa eletrônico, mas falha porque ele insere uma senha inválida.
+#Se o cliente digitar a senha inválida três vezes no período de 72 horas, o cartão dele será bloqueado automaticamente.
+setUp nome="John Frederic Piper" numeroDoCartao="9999888877776666" numeroDoContaCorrente="125654-08" saldo=90.00 senha="123456" notasATM_5_10_20_50_100="0,200,0,150,100" 
+setErroDeSenhaNasUltimas72horas numeroDoCartao="9999888877776666" numeroDeErros=1 numeroDeHorasDoprimeiroErro=2
+expectError "Senha inválida! Você tem mais uma tentativa nas próximas 70 horas, do contário, seu cartão será bloqueado por motivos de segurança." sacar numeroDoCartao="9999888877776666" valor=30 senha=123123
+expect 90.0 verSaldo numeroDoCartao="9999888877776666"

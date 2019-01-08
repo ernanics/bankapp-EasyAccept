@@ -1,0 +1,16 @@
+# Loan/Empréstimo
+# O cliente deseja simular um financiamento. Para isto, informa os valor desejado, a taxa de juros em percentual e o número de parcelas 
+# O sistema deverá apresentar o valor das parcelas mensais (EMI) e o valor financiado com juros.
+# A fórmula matemática para calcular as parcelas mensais é a seguinte:
+# EMI = P * R * [((1 + R) ˆN) / (((1 + R) ˆN) -1)], onde
+# P representa o montante do empréstimo,
+# R é a taxa de juros por mês,
+# e N é o número de parcelas mensais.
+expect 10350.09 calcularValorTotalDoFinanciamentoComJuros valorDesejado=10000.00 taxaDeJurosMensal=0.5334 numeroDeParcelas=12
+expect 862.51 calcularValorDasParcelasMensais valorDesejado=10000.00 taxaDeJurosMensal=0.5334 numeroDeParcelas=12
+expect 106082123.23 calcularValorTotalDoFinanciamentoComJuros valorDesejado=100000000.00 taxaDeJurosMensal=0.3227 numeroDeParcelas=36
+expect 2946725.65 calcularValorDasParcelasMensais valorDesejado=100000000.00 taxaDeJurosMensal=0.3227 numeroDeParcelas=36
+expect 501.88 calcularValorTotalDoFinanciamentoComJuros valorDesejado=500.00 taxaDeJurosMensal=0.1250 numeroDeParcelas=5
+expect 100.38 calcularValorDasParcelasMensais valorDesejado=500.00 taxaDeJurosMensal=0.1250 numeroDeParcelas=5
+expect 4241659.83 calcularValorTotalDoFinanciamentoComJuros valorDesejado=3250500.00 taxaDeJurosMensal=0.7665 numeroDeParcelas=72
+expect 58911.94 calcularValorDasParcelasMensais valorDesejado=3250500.00 taxaDeJurosMensal=0.7665 numeroDeParcelas=72

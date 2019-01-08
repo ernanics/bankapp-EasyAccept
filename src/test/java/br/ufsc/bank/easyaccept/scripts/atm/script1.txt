@@ -1,0 +1,6 @@
+#ATM
+#Um cliente retira uma quantia de dinheiro da sua conta bancária através de um caixa eletrônico, usando um cartão e uma  senha válida com sucesso.
+setUp nome="John Frederic Piper" numeroDoCartao="9999888877776666" numeroDoContaCorrente="125654-08" saldo=90.00 senha="123456" notasATM_5_10_20_50_100="0,200,0,150,100" 
+setErroDeSenhaNasUltimas72horas numeroDoCartao="9999888877776666" numeroDeErros=0 numeroDeHorasDoprimeiroErro=0
+expect "Sucesso!" sacar numeroDoCartao="9999888877776666" valor=30 senha=123456
+expect 60.0 verSaldo numeroDoCartao="9999888877776666"

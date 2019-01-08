@@ -1,0 +1,6 @@
+#ATM
+#Um cliente tenta retirar uma quantia de dinheiro da sua conta bancária através de um caixa eletrônico, mas falha porque ele insere um valor inválido. 
+setUp nome="John Frederic Piper" numeroDoCartao="9999888877776666" numeroDoContaCorrente="125654-08" saldo=90.00 senha="123456" notasATM_5_10_20_50_100="0,200,0,150,100"
+setErroDeSenhaNasUltimas72horas numeroDoCartao="9999888877776666" numeroDeErros=0 numeroDeHorasDoprimeiroErro=0 
+expectError "O valor informado é inválido!" sacar numeroDoCartao="9999888877776666" valor=31 senha=123456
+expect 90.0 verSaldo numeroDoCartao="9999888877776666"
