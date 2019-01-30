@@ -1,5 +1,7 @@
 package br.ufsc.bank.easyaccept.facade;
 
+import java.util.Calendar;
+
 import br.ufsc.model.ATM;
 import br.ufsc.model.Bank;
 import br.ufsc.model.Customer;
@@ -29,7 +31,13 @@ public class ATMFacade extends TestFacade {
 		atm.chargeBills(notasDe5, notasDe10, notasDe20, notasDe50, notasDe100);
 	}
 
-	public void setErroDeSenhaNasUltimas72horas(String numeroDoCartao, Integer numeroDeErros, Integer numeroDeHorasDoprimeiroErro) {}
+	public void setErroDeSenhaNasUltimas72horas(String numeroDoCartao, Integer numeroDeErros, Integer numeroDeHorasDoprimeiroErro) throws Exception {
+		for (Integer contador = 0; contador < numeroDeErros; contador++) {
+			Calendar data = Calendar.getInstance();
+			data.add(Calendar.HOUR, -numeroDeHorasDoprimeiroErro);
+			cliente.getCardByCardNumber(numeroDoCartao).insertPinHistory(false, data.getTime());
+		}
+	}
 
 	public String sacar(String numeroDoCartao, Integer valor, Integer senha) throws Exception {
 		atm.withDraw(numeroDoCartao, senha, valor);
